@@ -1,0 +1,12 @@
+open bessie
+tracym
+m5ll9ss1
+cd prtlist
+lcd "C:\AS400Report\Print Queue\CSV Files"
+mget *.*
+
+: delete batch files. 1st delete removes members; 2nd delete removes files
+quote site namefmt 1
+mdelete *.FILE
+mdelete *.FILE
+quit

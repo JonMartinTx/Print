@@ -1,0 +1,31 @@
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\App.g.cs
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print_MarkupCompile.cache
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print_MarkupCompile.lref
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Cancel_Confirmation.g.cs
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\bin\Debug\Print.exe.config
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\bin\Debug\Print.exe
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\bin\Debug\Print.pdb
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\PrintReports.g.cs
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Cancel_Confirmation.baml
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\PrintReports.baml
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print.g.resources
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print.Properties.Resources.resources
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print.csproj.GenerateResource.Cache
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print.exe
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print.pdb
+C:\AS400Report\Print\Print\bin\Debug\Print.exe.config
+C:\AS400Report\Print\Print\bin\Debug\Print.exe
+C:\AS400Report\Print\Print\bin\Debug\Print.pdb
+C:\AS400Report\Print\Print\obj\Debug\Print.csprojResolveAssemblyReference.cache
+C:\AS400Report\Print\Print\obj\Debug\Cancel_Confirmation.g.cs
+C:\AS400Report\Print\Print\obj\Debug\PrintReports.g.cs
+C:\AS400Report\Print\Print\obj\Debug\App.g.cs
+C:\AS400Report\Print\Print\obj\Debug\Print_MarkupCompile.cache
+C:\AS400Report\Print\Print\obj\Debug\Print_MarkupCompile.lref
+C:\AS400Report\Print\Print\obj\Debug\Cancel_Confirmation.baml
+C:\AS400Report\Print\Print\obj\Debug\PrintReports.baml
+C:\AS400Report\Print\Print\obj\Debug\Print.g.resources
+C:\AS400Report\Print\Print\obj\Debug\Print.Properties.Resources.resources
+C:\AS400Report\Print\Print\obj\Debug\Print.csproj.GenerateResource.Cache
+C:\AS400Report\Print\Print\obj\Debug\Print.exe
+C:\AS400Report\Print\Print\obj\Debug\Print.pdb

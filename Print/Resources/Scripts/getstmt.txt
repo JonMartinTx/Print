@@ -1,0 +1,8 @@
+:Ftp script to download statement data
+open bessie
+ftpadmin
+gsltw1th
+cd /home/export
+lcd "C:\AS400Report\Print Queue\CSV Files"
+get statements.csv
+bye
