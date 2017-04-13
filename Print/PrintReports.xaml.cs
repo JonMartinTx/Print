@@ -1,25 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using MessageBox = System.Windows.MessageBox;
 
 namespace Print
 {
-    /// <summary>
-    /// Interaction logic for PrintReports.xaml
-    /// </summary>
-    public partial class PrintReports : Window
+
+    #region PrintReports
+
+    /// A Simple GUI Interface for printing EDSI Documents
+
+    public partial class PrintReports
     {
         #region Constructor
 
@@ -32,7 +23,9 @@ namespace Print
 
         #region Button Methods
 
-        private bool Button_Okay(object sender, RoutedEventArgs e)
+        #region Okay
+
+        private bool Button_Okay()
         {
             string message = "Are you sure?";
             string caption = "Confirmation";
@@ -48,13 +41,17 @@ namespace Print
             }
         }
 
-        private void Button_Cancel(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region Cancel
+
+        public void Button_Cancel(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Do you want to close this window?",
                 "Confirmation", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes)
             {
-                this.Close();
+                Close();
             }
             else if (result == MessageBoxResult.No)
             {
@@ -67,46 +64,109 @@ namespace Print
 
         }
 
+        #endregion
+
+        #region Error
+
+        private void Button_Error(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(@"Your Scripts Folder is out of date. Please locate the README file located at 'C:\Users\Owner\Google Drive\EDSI\Updated Scripts' for more information. Click 'OK' to locate the README.",
+                "Update Required", MessageBoxButton.OKCancel);
+            if (result == MessageBoxResult.OK)
+            {
+                Close();
+            }
+            else if (result == MessageBoxResult.Cancel)
+            {
+                Button_Cancel(sender, e);
+            }
+            else
+            {
+                // Cancel code here
+            }
+
+        }
+
+        #endregion
+
+        #region Test Updater
+
+        public void Button_TEST(object sender, RoutedEventArgs e)
+        {
+
+            ReadmeDialog updaterTest = new ReadmeDialog();
+            updaterTest.ShowDialog();
+
+            //Restart Print.exe after updating the Scripts
+            System.Windows.Forms.Application.Restart();
+            Application.Current.Shutdown();
+
+        }
+
+        #endregion
+
+        #region Default
+
         private void OnClickDefault(object sender, RoutedEventArgs e)
         {
-            bool Proceed = false;
-            Proceed = Button_Okay(sender, e);
-            ComboBox optionsBox = PrintOptions;
-            string SelectedValue = optionsBox.SelectionBoxItem.ToString();
-            
+            var proceed = Button_Okay();
+            var optionsBox = PrintOptions;
+            var selectedValue = optionsBox.SelectionBoxItem.ToString();
 
-            if (Proceed)
+
+            if (proceed)
             {
-                switch (SelectedValue)
+                switch (selectedValue)
                 {
                     case ("Batchsheets"):
                         {
-                            ComboBoxItem_Batchsheets(sender, e);
+                            ComboBoxItem_Batchsheets();
                             break;
                         }
-                    case ("MonthlyReports"):
+                    case ("Monthly Reports"):
                         {
-                            ComboBoxItem_MonthlyReports(sender, e);
+                            ComboBoxItem_MonthlyReports();
+                            break;
+                        }
+                    case ("Invoices"):
+                        {
+                            ComboBoxItem_Invoices();
+                            break;
+                        }
+                    case ("Collection Agency Reports"):
+                        {
+                            ComboBoxItem_CollectionAgencyReports();
                             break;
                         }
                     case ("Statements"):
                         {
-                            ComboBoxItem_Statements(sender, e);
+                            ComboBoxItem_Statements();
                             break;
                         }
-                    case ("PerkinsReassignments"):
+                    case ("Perkins Reassignments"):
                         {
-                            ComboBoxItem_PerkinsReassignments(sender, e);
+                            ComboBoxItem_PerkinsReassignments();
                             break;
                         }
-                    case ("InterestPaid"):
+                    case ("Interest Paid"):
                         {
-                            Console.WriteLine(@"Selection was invalid, terminating.");
+                            try
+                            {
+                                ComboBoxItem_InterestPaid();
+                            }
+                            catch
+                            {
+                                Console.WriteLine(@"Your Scripts Folder is out of date. Please locate the README file located at 'C:\Users\Owner\Google Drive\EDSI\Updated Scripts' for more information.");
+                                ReadmeDialog Updater = new ReadmeDialog();
+                                Updater.ShowDialog();
+                                ComboBoxItem_MonthlyReports();
+                            }
+
                             break;
                         }
                     case ("All"):
                         {
-                            ComboBoxItem_All(sender, e);
+                            ComboBoxItem_All();
                             break;
                         }
                     default:
@@ -124,10 +184,7 @@ namespace Print
             Button_Cancel(sender, e);
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        #endregion
 
         #endregion
 
@@ -138,46 +195,69 @@ namespace Print
             MessageBox.Show("Please Make a selection before pressing \"Okay\".");
         }
 
-        private void ComboBoxItem_Batchsheets(object sender, RoutedEventArgs e)
+        private void ComboBoxItem_Batchsheets()
         {
-            RunBatch Script = new RunBatch("Batchsheets");
-            Script.ExecuteCommand();
+            RunBatch script = new RunBatch("Batchsheets");
+            script.ExecuteCommand();
         }
 
-        private void ComboBoxItem_MonthlyReports(object sender, RoutedEventArgs e)
+        private void ComboBoxItem_MonthlyReports()
         {
-            RunBatch Script = new RunBatch("MonthlyReports");
-            Script.ExecuteCommand();
+            RunBatch script = new RunBatch("Monthly Reports");
+            script.ExecuteCommand();
         }
 
-        private void ComboBoxItem_Statements(object sender, RoutedEventArgs e)
+        private void ComboBoxItem_Invoices()
         {
-            RunBatch Script = new RunBatch("Statements");
-            Script.ExecuteCommand();
+            RunBatch script = new RunBatch("Invoices");
+            script.ExecuteCommand();
         }
 
-        private void ComboBoxItem_PerkinsReassignments(object sender, RoutedEventArgs e)
+        private void ComboBoxItem_CollectionAgencyReports()
         {
-            RunBatch Script = new RunBatch("PerkinsReassignments");
-            Script.ExecuteCommand();
+            RunBatch script = new RunBatch("Collection Agency Reports");
+            script.ExecuteCommand();
         }
 
-        private void ComboBoxItem_All(object sender, RoutedEventArgs e)
+        private void ComboBoxItem_InterestPaid()
+        {
+            RunBatch script = new RunBatch("Interest Paid");
+            script.ExecuteCommand();
+        }
+
+        private void ComboBoxItem_Statements()
+        {
+            RunBatch script = new RunBatch("Statements");
+            script.ExecuteCommand();
+        }
+
+        private void ComboBoxItem_PerkinsReassignments()
+        {
+            RunBatch script = new RunBatch("Perkins Reassignments");
+            script.ExecuteCommand();
+        }
+
+        private void ComboBoxItem_All()
         {
             //ComboBoxItem_Batchsheets(sender, e);
             //ComboBoxItem_MonthlyReports(sender, e);
             //ComboBoxItem_Statements(sender, e);
             //ComboBoxItem_Statements(sender, e);
-            RunBatch Script = new RunBatch("All");
-            Script.ExecuteCommand();
+            RunBatch script = new RunBatch("All");
+            script.ExecuteCommand();
         }
 
         #endregion
-        
+
     }
+
+    #endregion
+
+    #region RunBatch
 
     public class RunBatch
     {
+
         #region Properties
 
         private string BatchPath { get; set; }
@@ -188,16 +268,26 @@ namespace Print
 
         #region Constructor
 
-        public RunBatch(string ReportType)
+        public RunBatch(string reportType)
         {
-            switch (ReportType)
+            switch (reportType)
             {
                 case ("Batchsheets"):
                     {
                         BatchName = "prtbatch.bat";
                         break;
                     }
-                case ("MonthlyReports"):
+                case ("Monthly Reports"):
+                    {
+                        BatchName = "prtq.bat";
+                        break;
+                    }
+                case ("Collection Agency Reports"):
+                    {
+                        BatchName = "prtq.bat";
+                        break;
+                    }
+                case ("Invoices"):
                     {
                         BatchName = "prtq.bat";
                         break;
@@ -207,15 +297,14 @@ namespace Print
                         BatchName = "getstmt.bat";
                         break;
                     }
-                case ("PerkinsReassignments"):
+                case ("Perkins Reassignments"):
                     {
                         BatchName = "get_perkins_reassignments.bat";
                         break;
                     }
-                case ("InterestPaid"):
+                case ("Interest Paid"):
                     {
-                        BatchName = "Error";
-                        Console.WriteLine(@"Selection was invalid, terminating.");
+                        BatchName = "getintrpaid.bat";
                         break;
                     }
                 case ("All"):
@@ -250,23 +339,44 @@ namespace Print
                 WorkingDirectory = Path
             };
 
-            var process = Process.Start(processInfo);
+            var process = new Process(); //Process.Start(processInfo);
 
-            process.OutputDataReceived += (object sender, DataReceivedEventArgs e) =>
-                Console.WriteLine("output>>" + e.Data);
-            process.BeginOutputReadLine();
+            process.OutputDataReceived += ConsumeData;
 
-            process.ErrorDataReceived += (object sender, DataReceivedEventArgs e) =>
-                Console.WriteLine("error>>" + e.Data);
-            process.BeginErrorReadLine();
+            try
+            {
+                process.StartInfo = processInfo;
+                process.Start();
+                process.BeginOutputReadLine();
+                //process.OutputDataReceived += (object sender, DataReceivedEventArgs e) =>
+                //Console.WriteLine("output>>" + e.Data);
+                //process.BeginOutputReadLine();
 
-            process.WaitForExit();
+                //process.ErrorDataReceived += (object sender, DataReceivedEventArgs e) =>
+                //    Console.WriteLine("error>>" + e.Data);
+                //process.BeginErrorReadLine();
+                process.WaitForExit();
+            }
+            finally
+            {
+                process.OutputDataReceived -= ConsumeData;
+            }
 
             Console.WriteLine("ExitCode: {0}", process.ExitCode);
             process.Close();
         }
 
+        private void ConsumeData(object sendingProcess,
+            DataReceivedEventArgs outLine)
+        {
+            if (!string.IsNullOrWhiteSpace(outLine.Data))
+                Console.WriteLine(outLine.Data);
+        }
+
         #endregion
 
     }
+
+    #endregion
+
 }

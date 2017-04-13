@@ -15,8 +15,11 @@
             <ComboBoxItem Content="Please Select an Option"/>
             <ComboBoxItem Content="Batchsheets"/>
             <ComboBoxItem Content="Monthly Reports"/>
+            <ComboBoxItem Content="Invoices"/>
+            <ComboBoxItem Content="Collection Agency Reports"/>
             <ComboBoxItem Content="Statements"/>
             <ComboBoxItem Content="Perkins Reassignments"/>
+            <ComboBoxItem Content="Interest Paid"/>
             <ComboBoxItem Content="All"/>
         </ComboBox>
         <Button Name="btnDefault" IsDefault="true" HorizontalAlignment="Left" Height="28" Margin="341,258,0,0" VerticalAlignment="Top" Width="103" Click="OnClickDefault">OK</Button>
@@ -28,6 +31,7 @@
                 <BitmapImage DecodePixelWidth="300" UriSource="/Resources/EDSILogo.png" />
             </Image.Source>
         </Image>
+        <!--<Button Name="btnTEST" IsDefault="false" Click="Button_TEST" Content="Test Updater" HorizontalAlignment="Left" Height="31" Margin="197,184,0,0" VerticalAlignment="Top" Width="138" Visibility="Visible"/>-->
 
     </Grid>
 

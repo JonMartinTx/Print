@@ -16,7 +16,6 @@ C:\Users\Owner\Documents\Visual Studio 2017\Projects\Print\Print\obj\Debug\Print
 C:\AS400Report\Print\Print\bin\Debug\Print.exe.config
 C:\AS400Report\Print\Print\bin\Debug\Print.exe
 C:\AS400Report\Print\Print\bin\Debug\Print.pdb
-C:\AS400Report\Print\Print\obj\Debug\Print.csprojResolveAssemblyReference.cache
 C:\AS400Report\Print\Print\obj\Debug\Cancel_Confirmation.g.cs
 C:\AS400Report\Print\Print\obj\Debug\PrintReports.g.cs
 C:\AS400Report\Print\Print\obj\Debug\App.g.cs
@@ -29,3 +28,6 @@ C:\AS400Report\Print\Print\obj\Debug\Print.Properties.Resources.resources
 C:\AS400Report\Print\Print\obj\Debug\Print.csproj.GenerateResource.Cache
 C:\AS400Report\Print\Print\obj\Debug\Print.exe
 C:\AS400Report\Print\Print\obj\Debug\Print.pdb
+C:\AS400Report\Print\Print\obj\Debug\ReadmeDialog.baml
+C:\AS400Report\Print\Print\obj\Debug\ReadmeDialog.g.cs
+C:\AS400Report\Print\Print\obj\Debug\Print.csprojResolveAssemblyReference.cache

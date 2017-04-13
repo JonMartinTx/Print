@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ReadmeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PrintReports.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +73,9 @@
     </Compile>
     <Compile Include="Cancel_Confirmation.xaml.cs">
       <DependentUpon>Cancel_Confirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReadmeDialog.xaml.cs">
+      <DependentUpon>ReadmeDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="PrintReports.xaml.cs">
       <DependentUpon>PrintReports.xaml</DependentUpon>
