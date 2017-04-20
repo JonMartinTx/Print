@@ -31,7 +31,7 @@
                 <BitmapImage DecodePixelWidth="300" UriSource="/Resources/EDSILogo.png" />
             </Image.Source>
         </Image>
-        <!--<Button Name="btnTEST" IsDefault="false" Click="Button_TEST" Content="Test Updater" HorizontalAlignment="Left" Height="31" Margin="197,184,0,0" VerticalAlignment="Top" Width="138" Visibility="Visible"/>-->
+        <Button Name="btnTEST" IsDefault="false" Click="Button_TEST" Content="Test Updater" HorizontalAlignment="Left" Height="31" Margin="197,184,0,0" VerticalAlignment="Top" Width="138" Visibility="Collapsed"/>
 
     </Grid>
 

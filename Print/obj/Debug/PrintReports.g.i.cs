@@ -123,6 +123,8 @@ namespace Print
             }
             this._contentLoaded = true;
         }
+
+        internal System.Windows.Controls.Button btnTEST;
     }
 }
 
